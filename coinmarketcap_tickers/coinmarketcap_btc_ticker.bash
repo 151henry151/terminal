@@ -11,8 +11,7 @@ cyan=$(tput setaf 6)
 
 getdata_fromcoinmarket() {
     { test -r "$btcglobalprice" && cat "$btcglobalprice" || curl -s "$btcglobalprice"; } | \
-      jq --raw-output \
-          '.[] | "\(.price)"'
+      jq -r '.data.quotes.USD.price'
 }
 
 while true; do
