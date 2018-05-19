@@ -2,7 +2,7 @@
 # Coinmarketcap ticker modified from example code written by Cole Tierney found at https://stackoverflow.com/a/47250418
 
 clear
-dashglobalprice="https://api.coinmarketcap.com/v1/ticker/dash/"
+dashglobalprice="https://api.coinmarketcap.com/v2/ticker/131/"
 tput bold
 tput civis
 red=$(tput setaf 1)
@@ -11,8 +11,7 @@ cyan=$(tput setaf 6)
 
 getdata_fromcoinmarket() {
     { test -r "$dashglobalprice" && cat "$dashglobalprice" || curl -s "$dashglobalprice"; } | \
-      jq --raw-output \
-          '.[] | "\(.price_usd)"'
+      jq -r '.data.quotes.USD.price' 
 }
 
 while true; do
