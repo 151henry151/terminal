@@ -35,5 +35,5 @@ while true; do
 
 	sleep 3  	
 	prev2=$cmp2
-    prev=$cmp	
+	prev=$cmp	
 done
