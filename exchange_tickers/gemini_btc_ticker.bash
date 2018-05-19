@@ -2,6 +2,7 @@
 clear
 gprice="https://api.gemini.com/v1/pubticker/btcusd"
 gethprice="https://api.gemini.com/v1/pubticker/ethusd"
+gethbtcprice="https://api.gemini.com/v1/pubticker/ethbtc"
 tput bold
 tput civis
 red=$(tput setaf 1)
@@ -31,9 +32,21 @@ while true; do
 	fi
 	printf "Gemini ETHUSD:\\n"
 	printf "\$""${last//\"/}"	
+	printf "\n"
+	read last < <(curl "$gethbtcprice" 2> /dev/null | jshon -e last)
+	cmp3=${last//[\".]}
+	if (( prev3 == cmp3 ))
+	then printf %s "$cyan"
+	elif (( prev3 < cmp3 ))
+	then printf %s "$green"
+	else printf %s "$red";
+	fi
+	printf "Gemini ETHBTC:\\n"
+	printf "\฿""${last//\"/}"	
+
 
 	sleep 3  	
 	prev2=$cmp2
-        prev=$cmp	
-	
+    prev=$cmp	
+	prev3=$cmp3
 done
