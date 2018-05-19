@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 gprice="https://api.binance.com/api/v1/ticker/price?symbol=BTCUSDT"
-gethprice="https://api.binance.com/api/v1/ticker/price?symbol=ETHDASH"
+gethprice="https://api.binance.com/api/v1/ticker/price?symbol=DASHETH"
 tput bold
 tput civis
 red=$(tput setaf 1)
@@ -29,8 +29,8 @@ while true; do
 	then printf %s "$green"
 	else printf %s "$red";
 	fi
-	printf "Binance ETHDASH:\\n"
-	printf "\Ξ""${price//\"/}"	
+	printf "Binance DASHETH:\\n"
+	printf "Ξ""${price//\"/}"	
 	printf "\n"
 
 	sleep 3  	
