@@ -24,8 +24,8 @@ while true; do
     printf %s "$green"
     else printf %s "$red";
     fi
-    printf "   Global\n   Average:\n   \$$price"
-sleep 240
+    printf "   Global Average BTCUSD:   \$$price"
+sleep 2
 previous_value=$comparison_value
 done
 
